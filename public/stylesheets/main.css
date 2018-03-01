@@ -1,0 +1,644 @@
+@import "https://fonts.googleapis.com/css?family=Inconsolata";
+@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
+html {
+    min-height: 100%;
+    margin: 0;
+}
+
+body {
+    margin: 110px;
+    box-sizing: border-box;
+    height: 100%;
+    background-color: #FFFFFF;
+}
+
+#console-font {
+    font-family: 'Inconsolata', Helvetica, sans-serif;
+    font-size: 1.5rem;
+    color: rgba(128, 255, 128, 0.8);
+    text-shadow: 0 0 1ex #33ff33, 0 0 2px rgba(255, 255, 255, 0.8);
+}
+
+.input-text {
+    width: 100vh;
+    border: 0;
+    font-size: 1.5rem;
+    font-family: 'Inconsolata', Helvetica, sans-serif;
+    background-color: transparent;
+}
+
+.overlay {
+    pointer-events: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(180deg, transparent 0, rgba(0, 0, 0, 0.3) 50%, transparent 100%);
+    background-size: auto 4px;
+    z-index: 99;
+}
+
+.overlay::before {
+    content: "";
+    pointer-events: none;
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(0deg, transparent 0%, rgba(32, 128, 32, 0.2) 2%, rgba(32, 128, 32, 0.8) 3%, rgba(32, 128, 32, 0.2) 3%, transparent 100%);
+    background-repeat: no-repeat;
+    animation: scan 7.5s linear 0s infinite;
+}
+
+@keyframes scan {
+    0% {
+    background-position: 0 -100vh;
+    }
+    35%, 100% {
+    background-position: 0 100vh;
+    }
+}
+.terminal {
+    box-sizing: inherit;
+    position: absolute;
+    height: 100%;
+    width: 1000px;
+    max-width: 100%;
+    padding: 4rem;
+    text-transform: uppercase;
+    background-image: radial-gradient(#11581e, #041607);
+}
+
+.output {
+    color: rgba(128, 255, 128, 0.8);
+    text-shadow: 0 0 1px rgba(51, 255, 51, 0.4), 0 0 2px rgba(255, 255, 255, 0.8);
+}
+
+.output::before {
+    content: "> ";
+}
+
+.input {
+    color: rgba(192, 255, 192, 0.8);
+    text-shadow: 0 0 1px rgba(51, 255, 51, 0.4), 0 0 2px rgba(255, 255, 255, 0.8);
+}
+
+.input::before {
+    content: "$ ";
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+}
+
+a::before {
+    content: "[";
+}
+
+a::after {
+    content: "]";
+}
+
+.errorcode {
+    color: white;
+}
+
+#lodading {
+}
+#loading::before {
+    animation: loading 2s;
+    content: "";
+}
+@keyframes loading {
+    0% {
+        content: "loading... 0%";
+    }
+
+    25.5% {
+        content: "loading... 1%";
+    }
+    26% {
+        content: "loading... 2%"
+    }
+    26.5% {
+        content: "loading... 3%"
+    }
+    27% {
+        content: "loading... 4%"
+    }
+    27.5% {
+        content: "loading... 5%"
+    }
+    28% {
+        content: "loading... 6%"
+    }
+    28.5% {
+        content: "loading... 7%"
+    }
+    29% {
+        content: "loading... 8%"
+    }
+    29.5% {
+        content: "loading... 9%"
+    }
+    30% {
+        content: "loading... 10%"
+    }
+    30.5% {
+        content: "loading... 11%"
+    }
+    31% {
+        content: "loading... 12%"
+    }
+    31.5% {
+        content: "loading... 13%"
+    }
+    32% {
+        content: "loading... 14%"
+    }
+    32.5% {
+        content: "loading... 15%"
+    }
+    33% {
+        content: "loading... 16%"
+    }
+    33.5% {
+        content: "loading... 17%"
+    }
+    34% {
+        content: "loading... 18%"
+    }
+    34.5% {
+        content: "loading... 19%"
+    }
+    35% {
+        content: "loading... 20%"
+    }
+    35.5% {
+        content: "loading... 21%"
+    }
+    36% {
+        content: "loading... 22%"
+    }
+    36.5% {
+        content: "loading... 23%"
+    }
+    37% {
+        content: "loading... 24%"
+    }
+    37.5% {
+        content: "loading... 25%"
+    }
+    38% {
+        content: "loading... 26%"
+    }
+    38.5% {
+        content: "loading... 27%"
+    }
+    39% {
+        content: "loading... 28%"
+    }
+    39.5% {
+        content: "loading... 29%"
+    }
+    40% {
+        content: "loading... 30%"
+    }
+    40.5% {
+        content: "loading... 31%"
+    }
+    41% {
+        content: "loading... 32%"
+    }
+    41.5% {
+        content: "loading... 33%"
+    }
+    42% {
+        content: "loading... 34%"
+    }
+    42.5% {
+        content: "loading... 35%"
+    }
+    43% {
+        content: "loading... 36%"
+    }
+    43.5% {
+        content: "loading... 37%"
+    }
+    44% {
+        content: "loading... 38%"
+    }
+    44.5% {
+        content: "loading... 39%"
+    }
+    45% {
+        content: "loading... 40%"
+    }
+    45.5% {
+        content: "loading... 41%"
+    }
+    46% {
+        content: "loading... 42%"
+    }
+    46.5% {
+        content: "loading... 43%"
+    }
+    47% {
+        content: "loading... 44%"
+    }
+    47.5% {
+        content: "loading... 45%"
+    }
+    48% {
+        content: "loading... 46%"
+    }
+    48.5% {
+        content: "loading... 47%"
+    }
+    49% {
+        content: "loading... 48%"
+    }
+    49.5% {
+        content: "loading... 49%"
+    }
+    50% {
+        content: "loading... 50%"
+    }
+    50.5% {
+        content: "loading... 51%"
+    }
+    51% {
+        content: "loading... 52%"
+    }
+    51.5% {
+        content: "loading... 53%"
+    }
+    52% {
+        content: "loading... 54%"
+    }
+    52.5% {
+        content: "loading... 55%"
+    }
+    53% {
+        content: "loading... 56%"
+    }
+    53.5% {
+        content: "loading... 57%"
+    }
+    54% {
+        content: "loading... 58%"
+    }
+    54.5% {
+        content: "loading... 59%"
+    }
+    55% {
+        content: "loading... 60%"
+    }
+    55.5% {
+        content: "loading... 61%"
+    }
+    56% {
+        content: "loading... 62%"
+    }
+    56.5% {
+        content: "loading... 63%"
+    }
+    57% {
+        content: "loading... 64%"
+    }
+    57.5% {
+        content: "loading... 65%"
+    }
+    58% {
+        content: "loading... 66%"
+    }
+    58.5% {
+        content: "loading... 67%"
+    }
+    59% {
+        content: "loading... 68%"
+    }
+    59.5% {
+        content: "loading... 69%"
+    }
+    60% {
+        content: "loading... 70%"
+    }
+    60.5% {
+        content: "loading... 71%"
+    }
+    61% {
+        content: "loading... 72%"
+    }
+    61.5% {
+        content: "loading... 73%"
+    }
+    62% {
+        content: "loading... 74%"
+    }
+    62.5% {
+        content: "loading... 75%"
+    }
+    63% {
+        content: "loading... 76%"
+    }
+    63.5% {
+        content: "loading... 77%"
+    }
+    64% {
+        content: "loading... 78%"
+    }
+    64.5% {
+        content: "loading... 79%"
+    }
+    65% {
+        content: "loading... 80%"
+    }
+    65.5% {
+        content: "loading... 81%"
+    }
+    66% {
+        content: "loading... 82%"
+    }
+    66.5% {
+        content: "loading... 83%"
+    }
+    67% {
+        content: "loading... 84%"
+    }
+    67.5% {
+        content: "loading... 85%"
+    }
+    68% {
+        content: "loading... 86%"
+    }
+    68.5% {
+        content: "loading... 87%"
+    }
+    69% {
+        content: "loading... 88%"
+    }
+    69.5% {
+        content: "loading... 89%"
+    }
+    70% {
+        content: "loading... 90%"
+    }
+    70.5% {
+        content: "loading... 91%"
+    }
+    71% {
+        content: "loading... 92%"
+    }
+    71.5% {
+        content: "loading... 93%"
+    }
+    72% {
+        content: "loading... 94%"
+    }
+    72.5% {
+        content: "loading... 95%"
+    }
+    73% {
+        content: "loading... 96%"
+    }
+    73.5% {
+        content: "loading... 97%"
+    }
+    74% {
+        content: "loading... 98%"
+    }
+    74.5% {
+        content: "loading... 99%"
+    }
+
+
+    75% {
+        content: "loading... 100%";
+    }
+}
+
+#connect {
+}
+#connect::before {
+    animation: connect 1s 2s;
+    white-space: pre;
+    content: "";
+}
+@keyframes connect {
+    0% {
+        content: "Team log server connect... \A developer's mindset connect... \A Link to the influence of Khala... \A sunrin connect... \A Lorem, ipsum dolor connect... \A God's Hand connect... \A Buddha's arms connect..._";
+    }
+    28% {
+        content: "Team log server connect... \A developer's mindset connect... \A Link to the influence of Khala... \A sunrin connect... \A Lorem, ipsum dolor connect... \A God's Hand connect... \A Buddha's arms connect... \A Connection to a connect... \A Disconnect to a Connect..._";
+    }
+    35% {
+        content: "Team log server connect... \A developer's mindset connect... \A Link to the influence of Khala... \A sunrin connect... \A Lorem, ipsum dolor connect... \A God's Hand connect... \A Buddha's arms connect... \A Connection to a connect... \A Disconnect to a Connect... \A Slave life connect..._";
+    }
+    36% {
+        content: "Team log server connect... \A developer's mindset connect... \A Link to the influence of Khala... \A sunrin connect... \A Lorem, ipsum dolor connect... \A God's Hand connect... \A Buddha's arms connect... \A Connection to a connect... \A Disconnect to a Connect... \A Slave life connect...  lurch connect..._";
+    }
+    37% {
+        content: "Team log server connect... \A developer's mindset connect... \A Link to the influence of Khala... \A sunrin connect... \A Lorem, ipsum dolor connect... \A God's Hand connect... \A Buddha's arms connect... \A Connection to a connect... \A Disconnect to a Connect... \A Slave life connect...  lurch connect... \A logcon server connect..._";
+    }
+    38% {
+        content: "Team log server connect... \A developer's mindset connect... \A Link to the influence of Khala... \A sunrin connect... \A Lorem, ipsum dolor connect... \A God's Hand connect... \A Buddha's arms connect... \A Connection to a connect... \A Disconnect to a Connect... \A Slave life connect...  lurch connect... \A logcon server connect... \A Sign language training center connect..._";
+    }
+    60% {
+        content: "Team log server connect... \A developer's mindset connect... \A Link to the influence of Khala... \A sunrin connect... \A Lorem, ipsum dolor connect... \A God's Hand connect... \A Buddha's arms connect... \A Connection to a connect... \A Disconnect to a Connect... \A Slave life connect...  lurch connect... \A logcon server connect... \A Sign language training center connect... \A School violence prevention group connect... \A Muriatic Acid Synthesis... \A Caustic soda synthesis... \A Hydrogen chloride synthesis... \A Methamphetamine Prediction... \A Salt Water Completion..._"
+    }
+    73% {
+        content: "Team log server connect... \A developer's mindset connect... \A Link to the influence of Khala... \A sunrin connect... \A Lorem, ipsum dolor connect... \A God's Hand connect... \A Buddha's arms connect... \A Connection to a connect... \A Disconnect to a Connect... \A Slave life connect...  lurch connect... \A logcon server connect... \A Sign language training center connect... \A School violence prevention group connect... \A Muriatic Acid Synthesis... \A Caustic soda synthesis... \A Hydrogen chloride synthesis... \A Methamphetamine Prediction... \A Salt Water Completion... \A Sir, I'm really sorry to be late on the front desk... \A Unexpected fatal error occurred... \A Attempt to repair... \A Resuming success... \A I'm hungry now..._";
+    }
+    74% {
+        content: "Team log server connect... \A developer's mindset connect... \A Link to the influence of Khala... \A sunrin connect... \A Lorem, ipsum dolor connect... \A God's Hand connect... \A Buddha's arms connect... \A Connection to a connect... \A Disconnect to a Connect... \A Slave life connect...  lurch connect... \A logcon server connect... \A Sign language training center connect... \A School violence prevention group connect... \A Muriatic Acid Synthesis... \A Caustic soda synthesis... \A Hydrogen chloride synthesis... \A Methamphetamine Prediction... \A Salt Water Completion... \A Sir, I'm really sorry to be late on the front desk... \A Unexpected fatal error occurred... \A Attempt to repair... \A Resuming success... \A I'm hungry now... \A Almost done..._";
+    }
+    100% {
+        content: "Team log server connect... \A developer's mindset connect... \A Link to the influence of Khala... \A sunrin connect... \A Lorem, ipsum dolor connect... \A God's Hand connect... \A Buddha's arms connect... \A Connection to a connect... \A Disconnect to a Connect... \A Slave life connect...  lurch connect... \A logcon server connect... \A Sign language training center connect... \A School violence prevention group connect... \A Muriatic Acid Synthesis... \A Caustic soda synthesis... \A Hydrogen chloride synthesis... \A Methamphetamine Prediction... \A Salt Water Completion... \A Sir, I'm really sorry to be late on the front desk... \A Unexpected fatal error occurred... \A Attempt to repair... \A Resuming success... \A I'm hungry now... \A Almost done..._";
+    }
+}
+
+#start {
+
+}
+#start::before {
+    content: "";
+    animation: start 4s 3s;
+}
+@keyframes start {
+    0% {
+        content: "_";
+    }
+    10% {
+        content: "";
+    }
+    20% {
+        content: "_";
+    }
+    30% {
+        content: "";
+    }
+    40% {
+        content: "_";
+    }
+    50% {
+        content: "done_";
+    }
+    60% {
+        content: "done";
+    }
+    70% {
+        content: "done_";
+    }
+    80% {
+        content: "done";
+    }
+    90% {
+        content: "done_";
+    }
+    100% {
+        content: "done";
+    }
+}
+
+
+/* 시계 */
+
+svg { width: 100%; } svg .chevrons { fill: #777; transform-origin: 50% 50%; animation: 40s spin1 linear infinite; } svg .exterior, svg .middle { fill: #555; transform-origin: 50% 50%; animation: 40s spin2 infinite; } svg .circles { fill: none; stroke: #000; } svg .circles .circle-1 { transform-origin: 50% top; animation: 20s spin-circle1 ease-in-out infinite; } svg .circles .circle-2 { transform-origin: 50% top; animation: 2.5s spin-circle2 ease-in-out infinite; } svg .circles .circle-3 { transform-origin: -75% 50%; animation: 20s spin-circle2 ease infinite; } svg .circles .circle-4 { transform-origin: 50% 110%; animation: 20s spin-circle2 linear infinite; } svg .circles .circle-5 { transform-origin: 50% 240%; animation: 10s spin-circle3 ease-in-out infinite; } svg .circles .circle-6 { transform-origin: 107% 50%; animation: 10s spin-circle2 linear infinite; }
+@keyframes spin1 { 0% { transform: rotate(-360deg); } 100% { transform: rotate(0deg); } }
+@keyframes spin2 { 0% { transform: rotate(0deg); } 8% { transform: rotate(0deg); } 8.3% { transform: rotate(30deg); } 16.3% { transform: rotate(30deg); } 16.6% { transform: rotate(60deg); } 24.6% { transform: rotate(60deg); } 24.9% { transform: rotate(90deg); } 33.0% { transform: rotate(90deg); } 33.3% { transform: rotate(120deg); } 41.3% { transform: rotate(120deg); } 41.6% { transform: rotate(150deg); } 49.6% { transform: rotate(150deg); } 49.9% { transform: rotate(180deg); } 58.0% { transform: rotate(180deg); } 58.3% { transform: rotate(210deg); } 66.3% { transform: rotate(210deg); } 66.6% { transform: rotate(240deg); } 74.6% { transform: rotate(240deg); } 74.9% { transform: rotate(270deg); } 83.0% { transform: rotate(270deg); } 83.3% { transform: rotate(300deg); } 91.3% { transform: rotate(300deg); } 91.6% { transform: rotate(330deg); } 99.7% { transform: rotate(330deg); } 100% { transform: roate(360deg); } }
+@keyframes spin-circle1 { 0% { transform: rotate(0deg); } 24% { transform: rotate(0deg); } 25% { transform: rotate(90deg); } 49% { transform: rotate(90deg); } 50% { transform: rotate(180deg); } 74% { transform: rotate(180deg); } 75% { transform: rotate(270deg); } 99% { transform: rotate(270deg); } 100% { transform: rotate(360deg); } }
+@keyframes spin-circle2 { 0% { transform: rotate(0deg); } 12.5% { transform: rotate(45deg); } 25% { transform: rotate(90deg); } 37.5% { transform: rotate(135deg); } 50% { transform: rotate(180deg); } 62.5% { transform: rotate(225deg); } 75% { transform: rotate(270deg); } 87.5% { transform: rotate(315deg); } 100% { transform: rotate(360deg); } }
+@keyframes spin-circle3 { 0% { transform: rotate(0deg); } 8% { transform: rotate(0deg); } 8.3% { transform: rotate(30deg); } 16.3% { transform: rotate(30deg); } 16.6% { transform: rotate(60deg); } 24.6% { transform: rotate(60deg); } 24.9% { transform: rotate(90deg); } 33.0% { transform: rotate(90deg); } 33.3% { transform: rotate(120deg); } 41.3% { transform: rotate(120deg); } 41.6% { transform: rotate(150deg); } 49.6% { transform: rotate(150deg); } 49.9% { transform: rotate(180deg); } 58.0% { transform: rotate(180deg); } 58.3% { transform: rotate(210deg); } 66.3% { transform: rotate(210deg); } 66.6% { transform: rotate(240deg); } 74.6% { transform: rotate(240deg); } 74.9% { transform: rotate(270deg); } 83.0% { transform: rotate(270deg); } 83.3% { transform: rotate(300deg); } 91.3% { transform: rotate(300deg); } 91.6% { transform: rotate(330deg); } 99.7% { transform: rotate(330deg); } 100% { transform: roate(360deg); } }
+
+/* 시계 끝 */
+
+
+/* 콘솔창 밑 */
+
+#no-console {
+    position: relative;
+    top: 100vh;
+    height: auto;
+    padding: 150px 64px 0;
+    font-family: 'Noto Sans KR', sans-serif;
+    background-color: #eaeaea;
+    background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000000' fill-opacity='0.08' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+#no-console h1 {
+    text-align: center;
+}
+
+.afterimage {
+    color: rgba(31, 60, 91, 0.2);
+}
+
+#introduction {
+    margin: 0 0 100px;
+    padding: 25px 50px 50px;
+    border: 8px dashed #328bf6;
+    color: #fff;
+    background: #181c20;
+    box-shadow: 0 0 0 #1f3c5f;
+    transition: 0.2s;
+}
+#introduction:hover {
+    box-shadow: 0 1px 5px #328bf6;
+}
+
+.big-hr {
+    width: 98%;
+    margin: 10px auto;
+    border-top: 0 solid #328bf6;
+    border-right: 5px solid rgba(0, 0, 0, 0);
+    border-bottom: 5px solid #328bf6;
+    border-left: 5px solid rgba(0, 0, 0, 0); 
+}
+
+.part-cover {
+    margin: 100px 0;
+    text-align: center;
+}
+.part {
+    display: inline-block;
+    width: 400px;
+    height: 400px;
+    margin: 0 5% 1%;
+    box-sizing: border-box;
+    border: 3px solid #181c20;
+    padding: 25px;
+    text-align: left;
+    background-image: url(../images/part-bg.png)
+}
+.small-part {
+    display: inline-block;
+    width: 300px;
+    height: 300px;
+    margin: 1% 2% 1%;
+    box-sizing: border-box;
+    border: 3px solid #181c20;
+    padding: 25px;
+    text-align: left;
+    background-image: url(../images/part-bg.png)
+}
+.part-verticality-emphasis {
+    border-top: 3px solid #328bf6;
+    border-bottom: 3px solid #328bf6;
+}
+.part-horizontal-emphasis {
+    border-right: 3px solid #328bf6;
+    border-left: 3px solid #328bf6;
+}
+
+.bg-server-icon {
+    background-image: url(../images/server.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right center;
+}
+.bg-network-icon {
+    background-image: url(../images/network.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right center;
+}
+.bg-C-icon {
+    background-image: url(../images/C.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right center;
+}
+.bg-web-icon {
+    background-image: url(../images/web.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right center;
+}
+.bg-asdf-icon {
+    background-image: url(../images/asdf.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right center;
+}
+
+#putter {
+    display: flex;
+    align-items: center;
+    height: 150px;
+    padding: 0 5%;
+    font-size: 90%;
+    color: #1f3c5f;
+    background: #181c20;
+}
+.open-source {
+    flex: 5;
+}
+.teamlog {
+    flex: 5;
+    text-align: right;
+}
