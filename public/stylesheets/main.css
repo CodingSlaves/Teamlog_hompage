@@ -11,7 +11,7 @@ body {
     height: 100%;
     background-color: #000000;
     background-image: radial-gradient(#11581e, #041607);
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 #console-font {
