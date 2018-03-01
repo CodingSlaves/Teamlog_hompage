@@ -666,6 +666,8 @@ svg { width: 100%; } svg .chevrons { fill: #777; transform-origin: 50% 50%; anim
 }
 #clock {
     position: relative;
+    width: 1200px;
+    margin: auto;
 }
 #clock-text {
     position: relative;
