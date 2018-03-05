@@ -1,5 +1,5 @@
-@import "https://fonts.googleapis.com/css?family=Inconsolata";
-@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
+@import url("https://fonts.googleapis.com/css?family=Inconsolata");
+@import url("http://fonts.googleapis.com/earlyaccess/notosanskr.css");
 html {
     height: 100%;
     margin: 0;
@@ -15,11 +15,54 @@ body {
 }
 
 #console-font {
+    /* display: none; */
+    height: 0;
+    position: sticky;
+    z-index: 1000;
     font-family: 'Inconsolata', Helvetica, sans-serif;
     font-size: 1.5rem;
     color: rgba(128, 255, 128, 0.8);
     text-shadow: 0 0 1ex #33ff33, 0 0 2px rgba(255, 255, 255, 0.8);
+    overflow: hidden;
 }
+
+/*
+.open-loading {
+    overflow: hidden;
+}
+.open-loading #console-font {
+    display: block;
+    height: 100%;
+}
+*/
+
+.open-loading {
+    animation: open-loading 6s;
+}
+@keyframes open-loading {
+    from {
+        overflow: hidden;
+    }
+    to {
+        overflow: hidden;
+    }
+}
+
+
+.open-loading #console-font {
+    animation: open-loading-console-font 6s;
+}
+@keyframes open-loading-console-font {
+    from {
+        display: block;
+        height: 100%;
+    }
+    to {
+        display: block;
+        height: 100%;
+    }
+}
+
 
 .input-text {
     width: 100vh;
@@ -71,7 +114,7 @@ body {
     max-width: 100%;
     padding: 4rem;
     text-transform: uppercase;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 .output {
@@ -672,6 +715,7 @@ svg { width: 100%; } svg .chevrons { fill: #777; transform-origin: 50% 50%; anim
 #clock-text {
     position: relative;
     top: 500px;
+    border-top-right-radius: 50px;
     background-color: rgba(0, 0, 0, 0.5);
     color: #ffffff;
     padding: 50px 0;
