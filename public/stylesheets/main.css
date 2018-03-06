@@ -700,6 +700,7 @@ svg { width: 100%; } svg .chevrons { fill: #777; transform-origin: 50% 50%; anim
     color: #1f3c5f;
     background: #181c20;
 }
+
 .open-source {
     flex: 5;
 }
@@ -709,14 +710,20 @@ svg { width: 100%; } svg .chevrons { fill: #777; transform-origin: 50% 50%; anim
 }
 #clock {
     position: relative;
-    width: 1200px;
+    min-width: 900px;
+    max-width: 1200px;
     margin: auto;
 }
 #clock-text {
     position: relative;
     top: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
     border-top-right-radius: 50px;
-    background-color: rgba(0, 0, 0, 0.5);
-    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #000000;
     padding: 50px 0;
+    box-shadow: 0 1px 10px #fff;
 }
